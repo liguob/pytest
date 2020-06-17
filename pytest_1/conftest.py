@@ -4,6 +4,7 @@ import pytest
 @pytest.fixture(scope="function")
 def setup():
     print("\n开始计算\n")
+    yield
 
 
 @pytest.fixture(scope="function")

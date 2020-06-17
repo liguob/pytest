@@ -1,6 +1,5 @@
 import pytest
 import yaml
-import os
 
 print (os.getcwd())
 
