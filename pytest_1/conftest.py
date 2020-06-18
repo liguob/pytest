@@ -1,12 +1,8 @@
 import pytest
 
-
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="function", autouse=True)
 def setup():
+
     print("\n开始计算\n")
     yield
-
-
-@pytest.fixture(scope="function")
-def teardown():
-    print("\n计算结束\n")
+    print("\n结束计算\n")
