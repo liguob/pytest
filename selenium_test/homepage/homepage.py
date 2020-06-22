@@ -4,17 +4,17 @@
 @Author  : liguobin
 @File    : indexpage.py
 """
-import json
-import os
-
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as ES
-from selenium.webdriver.support.wait import WebDriverWait
 
-from selenium_test.basemeshod.basemethod import BaseMethod
+from selenium_test.basepage.basepage import BasePage
 
 
-class HomePage(BaseMethod):
+class HomePage(BasePage):
 
+    def goto_contact(self):
+        self.find(By.CSS_SELECTOR, '.index_service_cnt_item_title')
+        return self.driver
+
+    def goto_upload(self):
+        self.find(By.CSS_SELECTOR, '.index_service_cnt_item_title')
+        return self.driver
