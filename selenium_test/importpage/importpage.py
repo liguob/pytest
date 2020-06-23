@@ -1,12 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-@Time    : 2020/6/22 15:45
-@Author  : liguobin
-@File    : importpage.py
-"""
+from selenium_test.basepage.basepage import BasePage
 
 
-class ImportPage:
+class ImportPage(BasePage):
 
     def upload_file(self):
         pass
