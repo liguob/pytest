@@ -21,7 +21,7 @@ class TestSelenium():
         while True:
             self.driver.refresh()
             sleep(1)
-            result = WebDriverWait(self.driver,time).until(ES.presence_of_element_located((By.ID,'menu_index')))
+            result = WebDriverWait(self.driver,time).until(ES.presence_of_element_located((By.ID, 'menu_index')))
             if result is not None:
                 break
 
