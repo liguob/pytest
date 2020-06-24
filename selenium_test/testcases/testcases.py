@@ -1,14 +1,14 @@
-from selenium_test.contactmember.contactmemberpage import ContactMemberPage
-from selenium_test.indexpage.Loginpage import LoginPage
-from selenium_test.homepage.homepage import HomePage
-import pytest
-
-from selenium_test.testcases.conftest import setup
+from selenium_test.pages.loginpage import LoginPage
 
 
-class TestContactMember(setup):
-    def setup_class(self,setup):
-        self.stat = HomePage()
+class TestContact:
 
-    def test_add_member(self):
-        assert '测试人员1' in self.stat.goto_add_contact().add_member('测试人员1','id1111',1319991001)
+    def setup_class(self):
+        self.main = LoginPage()
+
+    def add_contact_test(self):
+        _member_data = ('测试人员1', 'id1000', 13199991000)
+        assert '测试人员1' in self.main.login().goto_add_contact().add_member(*_member_data).get_members()
+
+    def delete_member_test(self):
+        

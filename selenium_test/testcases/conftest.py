@@ -1,7 +1,8 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium_test.indexpage.Loginpage import LoginPage
+
+from selenium_test.pages.loginpage import LoginPage
 
 
 @pytest.fixture(scope='class')

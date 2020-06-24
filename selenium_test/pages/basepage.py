@@ -17,14 +17,11 @@ class BasePage:
         else:
             self.driver = driver
 
-    def find(self, *locator):
-        return WebDriverWait(self.driver,3).until(expected_conditions.presence_of_element_located(*locator))
+    def find(self, *locator, time=3):
+        return WebDriverWait(self.driver, time).until(expected_conditions.presence_of_element_located(*locator))
 
     def finds(self, *locator):
-        return WebDriverWait(self.driver,3).until(expected_conditions.presence_of_all_elements_located(*locator))
+        return WebDriverWait(self.driver, 3).until(expected_conditions.presence_of_all_elements_located(*locator))
 
     def input_text_value(self, by: By, element, value):
         self.driver.find_element(by, element).send_keys(value)
-
-
-
