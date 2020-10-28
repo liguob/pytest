@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from api.base_api import Baseapi
+from request_pytest.api.base_api import Baseapi
 
 
 class Wework(Baseapi):

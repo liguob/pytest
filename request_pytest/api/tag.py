@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from api.base_api import Baseapi
-from api.wework import Wework
+from request_pytest.api.base_api import Baseapi
+from request_pytest.api.wework import Wework
 
 
 class Tag(Baseapi):
@@ -12,6 +12,7 @@ class Tag(Baseapi):
     def add(self, **req):
         req.update({"access_token": self.token})
         req = self.template("../data/tag.yml", req, "add")
+        print(req)
         return self.send_api(req)
 
     def delete(self, **req):

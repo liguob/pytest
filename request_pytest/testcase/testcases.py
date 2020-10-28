@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
+from request_pytest.api.tag import Tag
+
+
 import pytest
 
-from api.tag import Tag
+
 
 
 class Testag:
@@ -14,14 +17,11 @@ class Testag:
             assert self.tag.add(**adddata)["errmsg"] == "created"
         except AssertionError as e:
             if "invalid tagid" in e.__str__():
-                self.tag.delete(**{"tagid": adddata["tagid"]})
-                assert self.tag.add(**adddata)["errmsg"] == "created"
+                assert self.tag.delete(**{"tagid": adddata["tagid"]})["errmsg"] == "deleted"
             if "UserTag Name Already Exist" in e.__str__():
                 for i in self.tag.query()["taglist"]:
                     if i["tagname"] == adddata["tagname"]:
-                        self.tag.delete(**{"tagid": i["tagid"]})
+                        assert self.tag.delete(**{"tagid": i["tagid"]})["errmsg"] == "deleted"
                         break
-                    else:
-                        raise Exception("查询标签异常，没有对应的tagid")
-        assert self.tag.add(**adddata)["errmsg"] == "created"
-        assert self.tag.update(**updata)["errmsg"] == "updated"
+            assert self.tag.add(**adddata)["errmsg"] == "created"
+            assert self.tag.update(**updata)["errmsg"] == "updated"
