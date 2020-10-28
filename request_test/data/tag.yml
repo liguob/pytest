@@ -1,0 +1,37 @@
+add:
+  method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/create
+  params:
+    access_token: "$access_token"
+  json:
+    tagname: "$tagname"
+    tagid: $tagid
+
+delete:
+  method: get
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/delete
+  params:
+    access_token: "$access_token"
+    tagid: $tagid
+
+update:
+  method: post
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/update
+  params:
+    access_token: "$access_token"
+  json:
+    tagid: $tagid
+    tagname: "$tagname"
+
+query:
+  method: get
+  url: https://qyapi.weixin.qq.com/cgi-bin/tag/list
+  params:
+    access_token: "$access_token"
+
+token:
+  method: get
+  url: https://qyapi.weixin.qq.com/cgi-bin/gettoken
+  params:
+    corpid: "$corpid"
+    corpsecret: "$corpsecret"
