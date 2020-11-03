@@ -7,7 +7,7 @@ import yaml
 
 class Baseapi:
 
-    def send_api(self, req: dict):
+    def send_api(self, req):
         return requests.request(**req).json()
 
     def open_yml(self, path):
@@ -15,16 +15,12 @@ class Baseapi:
             data = yaml.safe_load(f)
         return data
 
-    @classmethod
-    def template(cls, filepath, data, sub=None):
+    def template(cls, filepath, data, sub):
         with open(filepath, encoding="utf-8") as f:
-            if sub:
-                return yaml.safe_load(
-                    Template(
-                        yaml.dump(
-                            yaml.safe_load(f)[sub]
-                        )
-                    ).substitute(data)
-                )
-            else:
-                return yaml.safe_load(Template(yaml.dump(f.read())).substitute(data))
+            return yaml.safe_load(
+                Template(
+                    yaml.dump(
+                        yaml.safe_load(f)[sub]
+                    )
+                ).substitute(**data)
+            )
