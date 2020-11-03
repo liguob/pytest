@@ -15,8 +15,8 @@ class Baseapi:
             data = yaml.safe_load(f)
         return data
 
-    def template(cls, filepath, data, sub):
-        with open(filepath, encoding="utf-8") as f:
+    def template(self, file_path, data, sub):
+        with open(file_path, encoding="utf-8") as f:
             return yaml.safe_load(
                 Template(
                     yaml.dump(
