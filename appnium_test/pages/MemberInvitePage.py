@@ -8,7 +8,7 @@ from appnium_test.pages.DelContactPage import DelContactPage
 class MemberInvitePage(BasePage):
 
     def goto_delcontact(self, name: str):
-        _xpath = '//*[@text="个人信息"]/../../../../..//*[@class="android.widget.RelativeLayout"]'
+        _xpath = '//*[@text="个人信息"]/../android.widget.LinearLayout[2]'
         self.scoll_to_element(name).click()
         self.find(MobileBy.XPATH, _xpath).click()
         return DelContactPage(self.driver)

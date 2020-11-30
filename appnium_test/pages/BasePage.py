@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from appium.webdriver.webdriver import WebDriver
 from appium.webdriver.common.mobileby import MobileBy
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -20,12 +20,15 @@ class BasePage:
     def finds(self, by: MobileBy, xpath):
         return self.driver.find_elements(by, xpath)
 
-    def find_toast(self):
-        return self.driver.find_element_by_xpath('//*[@class="Android.widget.Toast"]')
+    def toast_text(self, text):
+        text_message = f'//*[@text="{text}"]'
+        locator = (MobileBy.XPATH, text_message)
+        self.display_wait(locator)
+        return True
 
     def back(self, time: int = 1):
         for i in range(time):
             self.driver.back()
 
     def display_wait(self, locator):
-        WebDriverWait(self.driver, 20).until_not(expected_conditions.presence_of_element_located(*locator))
+        WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(locator))

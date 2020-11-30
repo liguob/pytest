@@ -16,6 +16,7 @@ class App(BasePage):
             _caps['appActivity'] = '.launch.WwMainActivity'
             _caps['appPackage'] = 'com.tencent.wework'
             _caps['noReset'] = True
+            _caps['automationName'] = 'UiAutomator2'
             self.driver = webdriver.Remote('http://localhost:4723/wd/hub', _caps)
             self.driver.implicitly_wait(5)
         else:

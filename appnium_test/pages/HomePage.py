@@ -8,6 +8,6 @@ from appnium_test.pages.MemberManage import MemberManage
 class HomePage(BasePage):
 
     def goto_membermanage(self):
-        xpath1 = '//android.widget.LinearLayout//[text()="通讯录"]'
+        xpath1 = '//android.widget.TextView[@text="通讯录"]'
         self.find(MobileBy.XPATH, xpath1).click()
         return MemberManage(self.driver)

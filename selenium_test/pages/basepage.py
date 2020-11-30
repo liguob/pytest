@@ -20,6 +20,7 @@ class BasePage:
             self.driver.get('https://work.weixin.qq.com/wework_admin/loginpage_wx')
             self.driver.maximize_window()
             self.driver.implicitly_wait(5)
+            self.driver.switch_to.de
         else:
             self.driver = driver
 
