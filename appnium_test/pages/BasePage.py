@@ -21,10 +21,8 @@ class BasePage:
         return self.driver.find_elements(by, xpath)
 
     def toast_text(self, text):
-        text_message = f'//*[@text="{text}"]'
-        locator = (MobileBy.XPATH, text_message)
-        self.display_wait(locator)
-        return True
+        _text_message = f'//*[@text="{text}"]'
+        return self.find(MobileBy.XPATH, _text_message).text
 
     def back(self, time: int = 1):
         for i in range(time):
